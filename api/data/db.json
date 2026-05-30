@@ -1,0 +1,242 @@
+{
+  "users": [],
+  "courses": [
+    {
+      "id": "1",
+      "language": "en",
+      "level": "beginner",
+      "title": "英语入门 - 基础会话",
+      "description": "从零开始学习英语基础，掌握日常问候、自我介绍、数字等基本表达",
+      "imageUrl": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=English%20language%20learning%20textbook%20with%20colorful%20illustrations%20of%20everyday%20conversations%2C%20bright%20and%20modern%20design&image_size=landscape_4_3",
+      "chapters": [
+        {
+          "id": "c1",
+          "title": "问候与介绍",
+          "lessons": [
+            { "id": "l1", "title": "基础问候语", "type": "words" },
+            { "id": "l2", "title": "问候语语法", "type": "grammar" },
+            { "id": "l3", "title": "问候对话练习", "type": "speaking" },
+            { "id": "l4", "title": "听力理解 - 问候", "type": "listening" }
+          ]
+        },
+        {
+          "id": "c2",
+          "title": "数字与时间",
+          "lessons": [
+            { "id": "l5", "title": "数字1-100", "type": "words" },
+            { "id": "l6", "title": "时间表达", "type": "grammar" }
+          ]
+        }
+      ],
+      "totalLessons": 6,
+      "duration": "4小时"
+    },
+    {
+      "id": "2",
+      "language": "ja",
+      "level": "beginner",
+      "title": "日语入门 - 五十音与基础",
+      "description": "学习日语五十音图，掌握基础问候和简单自我介绍",
+      "imageUrl": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Japanese%20language%20learning%20with%20hiragana%20characters%20and%20cherry%20blossoms%2C%20traditional%20and%20modern%20style&image_size=landscape_4_3",
+      "chapters": [
+        {
+          "id": "c3",
+          "title": "平假名",
+          "lessons": [
+            { "id": "l7", "title": "あ行-さ行", "type": "words" },
+            { "id": "l8", "title": "た行-は行", "type": "words" },
+            { "id": "l9", "title": "ま行-わ行", "type": "words" }
+          ]
+        },
+        {
+          "id": "c4",
+          "title": "基础问候",
+          "lessons": [
+            { "id": "l10", "title": "日常问候语", "type": "words" },
+            { "id": "l11", "title": "自我介绍", "type": "speaking" }
+          ]
+        }
+      ],
+      "totalLessons": 5,
+      "duration": "3小时"
+    },
+    {
+      "id": "3",
+      "language": "ko",
+      "level": "beginner",
+      "title": "韩语入门 - 字母与发音",
+      "description": "学习韩文字母表，掌握基础发音规则和简单对话",
+      "imageUrl": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Korean%20language%20learning%20with%20hangul%20alphabet%20and%20modern%20Seoul%20cityscape%2C%20vibrant%20and%20educational&image_size=landscape_4_3",
+      "chapters": [
+        {
+          "id": "c5",
+          "title": "韩文字母",
+          "lessons": [
+            { "id": "l12", "title": "元音字母", "type": "words" },
+            { "id": "l13", "title": "辅音字母", "type": "words" },
+            { "id": "l14", "title": "收音", "type": "words" }
+          ]
+        },
+        {
+          "id": "c6",
+          "title": "基础会话",
+          "lessons": [
+            { "id": "l15", "title": "问候语", "type": "words" },
+            { "id": "l16", "title": "简单对话", "type": "speaking" }
+          ]
+        }
+      ],
+      "totalLessons": 5,
+      "duration": "3小时"
+    },
+    {
+      "id": "4",
+      "language": "en",
+      "level": "intermediate",
+      "title": "英语进阶 - 日常生活",
+      "description": "提升英语日常交流能力，学习购物、点餐、问路等实用场景",
+      "imageUrl": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=English%20conversation%20practice%20in%20everyday%20life%20situations%20like%20shopping%20and%20dining%2C%20realistic%20illustration&image_size=landscape_4_3",
+      "chapters": [
+        {
+          "id": "c7",
+          "title": "购物用语",
+          "lessons": [
+            { "id": "l17", "title": "商店词汇", "type": "words" },
+            { "id": "l18", "title": "购物对话", "type": "speaking" }
+          ]
+        }
+      ],
+      "totalLessons": 2,
+      "duration": "2小时"
+    },
+    {
+      "id": "5",
+      "language": "ja",
+      "level": "intermediate",
+      "title": "日语进阶 - 日本文化",
+      "description": "深入了解日本文化，学习节日、传统、饮食等相关表达",
+      "imageUrl": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Japanese%20culture%20and%20traditions%20including%20tea%20ceremony%20and%20festivals%2C%20artistic%20illustration&image_size=landscape_4_3",
+      "chapters": [
+        {
+          "id": "c8",
+          "title": "日本节日",
+          "lessons": [
+            { "id": "l19", "title": "节日词汇", "type": "words" },
+            { "id": "l20", "title": "节日介绍", "type": "grammar" }
+          ]
+        }
+      ],
+      "totalLessons": 2,
+      "duration": "2小时"
+    },
+    {
+      "id": "6",
+      "language": "ko",
+      "level": "intermediate",
+      "title": "韩语进阶 - 韩流文化",
+      "description": "通过韩剧、K-pop学习韩语，了解韩国现代文化",
+      "imageUrl": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Korean%20wave%20culture%20with%20K-pop%20music%20and%20Korean%20drama%20scenes%2C%20modern%20and%20stylish&image_size=landscape_4_3",
+      "chapters": [
+        {
+          "id": "c9",
+          "title": "韩剧常用语",
+          "lessons": [
+            { "id": "l21", "title": "日常表达", "type": "words" },
+            { "id": "l22", "title": "情感表达", "type": "grammar" }
+          ]
+        }
+      ],
+      "totalLessons": 2,
+      "duration": "2小时"
+    }
+  ],
+  "words": {
+    "en": [
+      { "id": "w1", "term": "Hello", "translation": "你好", "pronunciation": "/həˈloʊ/", "example": "Hello, nice to meet you!", "exampleTranslation": "你好，很高兴认识你！" },
+      { "id": "w2", "term": "Goodbye", "translation": "再见", "pronunciation": "/ɡʊdˈbaɪ/", "example": "Goodbye, see you tomorrow!", "exampleTranslation": "再见，明天见！" },
+      { "id": "w3", "term": "Thank you", "translation": "谢谢", "pronunciation": "/θæŋk juː/", "example": "Thank you for your help.", "exampleTranslation": "谢谢你的帮助。" },
+      { "id": "w4", "term": "Please", "translation": "请", "pronunciation": "/pliːz/", "example": "Please sit down.", "exampleTranslation": "请坐。" },
+      { "id": "w5", "term": "Sorry", "translation": "对不起", "pronunciation": "/ˈsɒri/", "example": "Sorry, I'm late.", "exampleTranslation": "对不起，我迟到了。" },
+      { "id": "w6", "term": "Yes", "translation": "是", "pronunciation": "/jes/", "example": "Yes, I understand.", "exampleTranslation": "是的，我明白了。" },
+      { "id": "w7", "term": "No", "translation": "不", "pronunciation": "/noʊ/", "example": "No, thank you.", "exampleTranslation": "不，谢谢。" },
+      { "id": "w8", "term": "Good morning", "translation": "早上好", "pronunciation": "/ɡʊd ˈmɔːrnɪŋ/", "example": "Good morning, how are you?", "exampleTranslation": "早上好，你好吗？" },
+      { "id": "w9", "term": "Good night", "translation": "晚安", "pronunciation": "/ɡʊd naɪt/", "example": "Good night, sweet dreams.", "exampleTranslation": "晚安，做个好梦。" },
+      { "id": "w10", "term": "How are you?", "translation": "你好吗？", "pronunciation": "/haʊ ɑːr juː/", "example": "Hi! How are you today?", "exampleTranslation": "嗨！你今天好吗？" }
+    ],
+    "ja": [
+      { "id": "wj1", "term": "こんにちは", "translation": "你好", "pronunciation": "konnichiwa", "example": "こんにちは、元気ですか？", "exampleTranslation": "你好，你好吗？" },
+      { "id": "wj2", "term": "おはようございます", "translation": "早上好", "pronunciation": "ohayou gozaimasu", "example": "おはようございます、今日もいい天気ですね。", "exampleTranslation": "早上好，今天也是好天气呢。" },
+      { "id": "wj3", "term": "こんばんは", "translation": "晚上好", "pronunciation": "konbanwa", "example": "こんばんは、お元気ですか？", "exampleTranslation": "晚上好，你好吗？" },
+      { "id": "wj4", "term": "ありがとう", "translation": "谢谢", "pronunciation": "arigatou", "example": "ありがとうございます。", "exampleTranslation": "非常感谢。" },
+      { "id": "wj5", "term": "すみません", "translation": "对不起/打扰了", "pronunciation": "sumimasen", "example": "すみません、道を教えてください。", "exampleTranslation": "打扰了，请告诉我路。" },
+      { "id": "wj6", "term": "はい", "translation": "是", "pronunciation": "hai", "example": "はい、分かりました。", "exampleTranslation": "是的，明白了。" },
+      { "id": "wj7", "term": "いいえ", "translation": "不", "pronunciation": "iie", "example": "いいえ、結構です。", "exampleTranslation": "不，不用了。" },
+      { "id": "wj8", "term": "おやすみなさい", "translation": "晚安", "pronunciation": "oyasuminasai", "example": "おやすみなさい、良い夢を。", "exampleTranslation": "晚安，做个好梦。" },
+      { "id": "wj9", "term": "はじめまして", "translation": "初次见面", "pronunciation": "hajimemashite", "example": "はじめまして、よろしくお願いします。", "exampleTranslation": "初次见面，请多关照。" },
+      { "id": "wj10", "term": "さようなら", "translation": "再见", "pronunciation": "sayounara", "example": "さようなら、また明日。", "exampleTranslation": "再见，明天见。" }
+    ],
+    "ko": [
+      { "id": "wk1", "term": "안녕하세요", "translation": "你好", "pronunciation": "annyeonghaseyo", "example": "안녕하세요, 만나서 반갑습니다!", "exampleTranslation": "你好，很高兴认识你！" },
+      { "id": "wk2", "term": "감사합니다", "translation": "谢谢", "pronunciation": "gamsahamnida", "example": "도움을 주셔서 감사합니다.", "exampleTranslation": "感谢您的帮助。" },
+      { "id": "wk3", "term": "죄송합니다", "translation": "对不起", "pronunciation": "joesonghamnida", "example": "늦어서 죄송합니다.", "exampleTranslation": "对不起，我迟到了。" },
+      { "id": "wk4", "term": "네", "translation": "是", "pronunciation": "ne", "example": "네, 알겠습니다.", "exampleTranslation": "是的，明白了。" },
+      { "id": "wk5", "term": "아니요", "translation": "不", "pronunciation": "aniyo", "example": "아니요, 괜찮습니다.", "exampleTranslation": "不，没关系。" },
+      { "id": "wk6", "term": "안녕히 가세요", "translation": "再见（对离开的人）", "pronunciation": "annyeonghi gaseyo", "example": "안녕히 가세요, 내일 봐요.", "exampleTranslation": "再见，明天见。" },
+      { "id": "wk7", "term": "안녕히 계세요", "translation": "再见（对留下的人）", "pronunciation": "annyeonghi gyeseyo", "example": "안녕히 계세요, 또 올게요.", "exampleTranslation": "再见，我会再来的。" },
+      { "id": "wk8", "term": "좋은 아침이에요", "translation": "早上好", "pronunciation": "joeun achimieyo", "example": "좋은 아침이에요, 오늘도 좋은 하루 되세요.", "exampleTranslation": "早上好，今天也祝你有美好的一天。" },
+      { "id": "wk9", "term": "안녕히 주무세요", "translation": "晚安", "pronunciation": "annyeonghi jumuseyo", "example": "안녕히 주무세요, 좋은 꿈 꾸세요.", "exampleTranslation": "晚安，做个好梦。" },
+      { "id": "wk10", "term": "만나서 반갑습니다", "translation": "很高兴认识你", "pronunciation": "mannaseo bangapseumnida", "example": "만나서 반갑습니다, 저는 김민수입니다.", "exampleTranslation": "很高兴认识你，我是金民秀。" }
+    ]
+  },
+  "progress": [],
+  "achievements": [
+    { "id": "a1", "name": "初学者", "description": "完成第一个课程", "icon": "🌱", "requirement": 1, "current": 0, "unlocked": false },
+    { "id": "a2", "name": "词汇达人", "description": "掌握100个单词", "icon": "📚", "requirement": 100, "current": 0, "unlocked": false },
+    { "id": "a3", "name": "坚持不懈", "description": "连续学习7天", "icon": "🔥", "requirement": 7, "current": 0, "unlocked": false },
+    { "id": "a4", "name": "多语种学习者", "description": "学习2种语言", "icon": "🌍", "requirement": 2, "current": 0, "unlocked": false },
+    { "id": "a5", "name": "口语达人", "description": "完成10次口语练习", "icon": "🎤", "requirement": 10, "current": 0, "unlocked": false },
+    { "id": "a6", "name": "听力高手", "description": "听力练习正确率90%以上", "icon": "🎧", "requirement": 90, "current": 0, "unlocked": false },
+    { "id": "a7", "name": "社区之星", "description": "发布10条动态", "icon": "⭐", "requirement": 10, "current": 0, "unlocked": false },
+    { "id": "a8", "name": "学霸", "description": "完成所有初级课程", "icon": "🏆", "requirement": 3, "current": 0, "unlocked": false }
+  ],
+  "posts": [
+    {
+      "id": "p1",
+      "userId": "demo1",
+      "username": "小明",
+      "content": "今天开始学习日语了！五十音图好难记，但是很有意思。希望能坚持下去！💪",
+      "language": "ja",
+      "likes": 5,
+      "likedByMe": false,
+      "comments": [
+        { "id": "c1", "userId": "demo2", "username": "さくら", "content": "加油！日本語は楽しいよ！", "createdAt": "2024-01-15T10:30:00Z" }
+      ],
+      "createdAt": "2024-01-15T08:00:00Z"
+    },
+    {
+      "id": "p2",
+      "userId": "demo2",
+      "username": "민수",
+      "content": "한국어 공부 30일째! 매일 조금씩이라도 꾸준히 하니까 실력이 느는 게 느껴져요.大家一起加油！",
+      "language": "ko",
+      "likes": 8,
+      "likedByMe": false,
+      "comments": [],
+      "createdAt": "2024-01-14T15:20:00Z"
+    },
+    {
+      "id": "p3",
+      "userId": "demo3",
+      "username": "Lily",
+      "content": "Just finished my first English course! The speaking practice was really helpful. I can now introduce myself confidently! 🎉",
+      "language": "en",
+      "likes": 12,
+      "likedByMe": false,
+      "comments": [
+        { "id": "c2", "userId": "demo1", "username": "小明", "content": "Great job! Keep it up!", "createdAt": "2024-01-13T09:00:00Z" },
+        { "id": "c3", "userId": "demo4", "username": "Tom", "content": "Congratulations! What's your next goal?", "createdAt": "2024-01-13T10:15:00Z" }
+      ],
+      "createdAt": "2024-01-13T08:00:00Z"
+    }
+  ]
+}
