@@ -1,9 +1,6 @@
 import { create } from 'zustand';
 import { Post, Language } from '@/types';
-<<<<<<< HEAD
 import { STATIC_POSTS } from '@/data/staticData';
-=======
->>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
 
 interface CommunityState {
   posts: Post[];
@@ -17,19 +14,13 @@ interface CommunityState {
   setSelectedLanguage: (language: Language | null) => void;
 }
 
-<<<<<<< HEAD
 export const useCommunityStore = create<CommunityState>((set, get) => ({
   posts: STATIC_POSTS,
-=======
-export const useCommunityStore = create<CommunityState>((set) => ({
-  posts: [],
->>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
   isLoading: false,
   selectedLanguage: null,
 
   fetchPosts: async (language?: Language) => {
     set({ isLoading: true });
-<<<<<<< HEAD
     await new Promise(resolve => setTimeout(resolve, 200));
     let filtered = STATIC_POSTS;
     if (language) {
@@ -84,79 +75,6 @@ export const useCommunityStore = create<CommunityState>((set) => ({
           : p
       ),
     }));
-=======
-    try {
-      let url = '/api/community/posts';
-      if (language) url += `?language=${language}`;
-      
-      const response = await fetch(url);
-      if (response.ok) {
-        const posts = await response.json();
-        set({ posts });
-      }
-    } catch (error) {
-      console.error('Failed to fetch posts:', error);
-    } finally {
-      set({ isLoading: false });
-    }
-  },
-
-  createPost: async (userId: string, username: string, content: string, language?: Language) => {
-    try {
-      const response = await fetch('/api/community/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, username, content, language }),
-      });
-      
-      if (response.ok) {
-        const newPost = await response.json();
-        set((state) => ({ posts: [newPost, ...state.posts] }));
-        return true;
-      }
-      return false;
-    } catch {
-      return false;
-    }
-  },
-
-  likePost: async (postId: string, userId: string) => {
-    try {
-      const response = await fetch(`/api/community/posts/${postId}/like`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId }),
-      });
-      
-      if (response.ok) {
-        const updatedPost = await response.json();
-        set((state) => ({
-          posts: state.posts.map((p) => (p.id === postId ? updatedPost : p)),
-        }));
-      }
-    } catch (error) {
-      console.error('Failed to like post:', error);
-    }
-  },
-
-  addComment: async (postId: string, userId: string, username: string, content: string) => {
-    try {
-      const response = await fetch(`/api/community/posts/${postId}/comments`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, username, content }),
-      });
-      
-      if (response.ok) {
-        const updatedPost = await response.json();
-        set((state) => ({
-          posts: state.posts.map((p) => (p.id === postId ? updatedPost : p)),
-        }));
-      }
-    } catch (error) {
-      console.error('Failed to add comment:', error);
-    }
->>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
   },
 
   setSelectedLanguage: (language) => set({ selectedLanguage: language }),

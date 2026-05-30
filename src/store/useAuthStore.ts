@@ -11,7 +11,6 @@ interface AuthState {
   checkAuth: () => void;
 }
 
-<<<<<<< HEAD
 const TEST_USERS: Record<string, { password: string; user: User }> = {
   'test@example.com': {
     password: '123456',
@@ -19,15 +18,12 @@ const TEST_USERS: Record<string, { password: string; user: User }> = {
   },
 };
 
-=======
->>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
   isLoading: true,
 
   login: async (email: string, password: string) => {
-<<<<<<< HEAD
     await new Promise(resolve => setTimeout(resolve, 500));
     
     const testUser = TEST_USERS[email];
@@ -55,47 +51,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     localStorage.setItem('user', JSON.stringify(newUser));
     set({ user: newUser, isAuthenticated: true });
     return true;
-=======
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        set({ user: data.user, isAuthenticated: true });
-        return true;
-      }
-      return false;
-    } catch {
-      return false;
-    }
-  },
-
-  register: async (email: string, username: string, password: string) => {
-    try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, username, password }),
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        set({ user: data.user, isAuthenticated: true });
-        return true;
-      }
-      return false;
-    } catch {
-      return false;
-    }
->>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
   },
 
   logout: () => {
