@@ -11,12 +11,51 @@ interface AuthState {
   checkAuth: () => void;
 }
 
+<<<<<<< HEAD
+const TEST_USERS: Record<string, { password: string; user: User }> = {
+  'test@example.com': {
+    password: '123456',
+    user: { id: 'test1', email: 'test@example.com', username: '测试用户', createdAt: '2024-01-01T00:00:00Z' },
+  },
+};
+
+=======
+>>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
   isLoading: true,
 
   login: async (email: string, password: string) => {
+<<<<<<< HEAD
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    const testUser = TEST_USERS[email];
+    if (testUser && testUser.password === password) {
+      localStorage.setItem('token', 'mock-jwt-token-' + testUser.user.id);
+      localStorage.setItem('user', JSON.stringify(testUser.user));
+      set({ user: testUser.user, isAuthenticated: true });
+      return true;
+    }
+    
+    return false;
+  },
+
+  register: async (email: string, username: string, password: string) => {
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    const newUser: User = {
+      id: Date.now().toString(),
+      email,
+      username,
+      createdAt: new Date().toISOString(),
+    };
+    
+    localStorage.setItem('token', 'mock-jwt-token-' + newUser.id);
+    localStorage.setItem('user', JSON.stringify(newUser));
+    set({ user: newUser, isAuthenticated: true });
+    return true;
+=======
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
@@ -56,6 +95,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     } catch {
       return false;
     }
+>>>>>>> 0affdd6380984f95e4036306e6be343bc12129b5
   },
 
   logout: () => {
