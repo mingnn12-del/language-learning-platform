@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Course, Progress, Achievement, Language, Level, Word } from '@/types';
+import { getCourses, getCourseById, getWords, STATIC_ACHIEVEMENTS } from '@/data/staticData';
 
 interface LearningState {
   courses: Course[];
@@ -31,7 +32,7 @@ export const useLearningStore = create<LearningState>((set, get) => ({
   courses: [],
   currentCourse: null,
   progress: {},
-  achievements: [],
+  achievements: STATIC_ACHIEVEMENTS,
   currentWords: [],
   currentWordIndex: 0,
   isFlipped: false,
@@ -41,102 +42,36 @@ export const useLearningStore = create<LearningState>((set, get) => ({
 
   fetchCourses: async (language?: Language, level?: Level) => {
     set({ isLoading: true });
-    try {
-      let url = '/api/courses';
-      const params = new URLSearchParams();
-      if (language) params.append('language', language);
-      if (level) params.append('level', level);
-      if (params.toString()) url += `?${params.toString()}`;
-      
-      const response = await fetch(url);
-      if (response.ok) {
-        const courses = await response.json();
-        set({ courses });
-      }
-    } catch (error) {
-      console.error('Failed to fetch courses:', error);
-    } finally {
-      set({ isLoading: false });
-    }
+    await new Promise(resolve => setTimeout(resolve, 200));
+    const courses = getCourses(language, level);
+    set({ courses, isLoading: false });
   },
 
   fetchCourseById: async (id: string) => {
     set({ isLoading: true });
-    try {
-      const response = await fetch(`/api/courses/${id}`);
-      if (response.ok) {
-        const course = await response.json();
-        set({ currentCourse: course });
-      }
-    } catch (error) {
-      console.error('Failed to fetch course:', error);
-    } finally {
-      set({ isLoading: false });
-    }
+    await new Promise(resolve => setTimeout(resolve, 200));
+    const course = getCourseById(id) || null;
+    set({ currentCourse: course, isLoading: false });
   },
 
   fetchProgress: async (userId: string) => {
-    try {
-      const response = await fetch(`/api/progress/${userId}`);
-      if (response.ok) {
-        const progressData = await response.json();
-        const progressMap: Record<string, Progress> = {};
-        progressData.forEach((p: Progress) => {
-          progressMap[p.courseId] = p;
-        });
-        set({ progress: progressMap });
-      }
-    } catch (error) {
-      console.error('Failed to fetch progress:', error);
-    }
+    await new Promise(resolve => setTimeout(resolve, 100));
   },
 
   updateProgress: async (userId: string, courseId: string, lessonId: string) => {
-    try {
-      const response = await fetch('/api/progress', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, courseId, lessonId }),
-      });
-      if (response.ok) {
-        const updatedProgress = await response.json();
-        set((state) => ({
-          progress: {
-            ...state.progress,
-            [courseId]: updatedProgress,
-          },
-        }));
-      }
-    } catch (error) {
-      console.error('Failed to update progress:', error);
-    }
+    await new Promise(resolve => setTimeout(resolve, 100));
   },
 
   fetchAchievements: async (userId: string) => {
-    try {
-      const response = await fetch(`/api/achievements/${userId}`);
-      if (response.ok) {
-        const achievements = await response.json();
-        set({ achievements });
-      }
-    } catch (error) {
-      console.error('Failed to fetch achievements:', error);
-    }
+    await new Promise(resolve => setTimeout(resolve, 100));
+    set({ achievements: STATIC_ACHIEVEMENTS });
   },
 
   fetchWords: async (language: Language) => {
     set({ isLoading: true });
-    try {
-      const response = await fetch(`/api/words/${language}`);
-      if (response.ok) {
-        const words = await response.json();
-        set({ currentWords: words, currentWordIndex: 0, isFlipped: false });
-      }
-    } catch (error) {
-      console.error('Failed to fetch words:', error);
-    } finally {
-      set({ isLoading: false });
-    }
+    await new Promise(resolve => setTimeout(resolve, 200));
+    const words = getWords(language);
+    set({ currentWords: words, currentWordIndex: 0, isFlipped: false, isLoading: false });
   },
 
   setSelectedLanguage: (language) => set({ selectedLanguage: language }),

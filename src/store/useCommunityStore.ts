@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { Post, Language } from '@/types';
+import { STATIC_POSTS } from '@/data/staticData';
 
 interface CommunityState {
   posts: Post[];
@@ -13,84 +14,67 @@ interface CommunityState {
   setSelectedLanguage: (language: Language | null) => void;
 }
 
-export const useCommunityStore = create<CommunityState>((set) => ({
-  posts: [],
+export const useCommunityStore = create<CommunityState>((set, get) => ({
+  posts: STATIC_POSTS,
   isLoading: false,
   selectedLanguage: null,
 
   fetchPosts: async (language?: Language) => {
     set({ isLoading: true });
-    try {
-      let url = '/api/community/posts';
-      if (language) url += `?language=${language}`;
-      
-      const response = await fetch(url);
-      if (response.ok) {
-        const posts = await response.json();
-        set({ posts });
-      }
-    } catch (error) {
-      console.error('Failed to fetch posts:', error);
-    } finally {
-      set({ isLoading: false });
+    await new Promise(resolve => setTimeout(resolve, 200));
+    let filtered = STATIC_POSTS;
+    if (language) {
+      filtered = filtered.filter(p => p.language === language);
     }
+    set({ posts: filtered, isLoading: false });
   },
 
   createPost: async (userId: string, username: string, content: string, language?: Language) => {
-    try {
-      const response = await fetch('/api/community/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, username, content, language }),
-      });
-      
-      if (response.ok) {
-        const newPost = await response.json();
-        set((state) => ({ posts: [newPost, ...state.posts] }));
-        return true;
-      }
-      return false;
-    } catch {
-      return false;
-    }
+    await new Promise(resolve => setTimeout(resolve, 200));
+    const newPost: Post = {
+      id: Date.now().toString(),
+      userId,
+      username,
+      content,
+      language: language || 'en',
+      likes: 0,
+      likedByMe: false,
+      comments: [],
+      createdAt: new Date().toISOString(),
+    };
+    set((state) => ({ posts: [newPost, ...state.posts] }));
+    return true;
   },
 
   likePost: async (postId: string, userId: string) => {
-    try {
-      const response = await fetch(`/api/community/posts/${postId}/like`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId }),
-      });
-      
-      if (response.ok) {
-        const updatedPost = await response.json();
-        set((state) => ({
-          posts: state.posts.map((p) => (p.id === postId ? updatedPost : p)),
-        }));
-      }
-    } catch (error) {
-      console.error('Failed to like post:', error);
-    }
+    await new Promise(resolve => setTimeout(resolve, 100));
+    set((state) => ({
+      posts: state.posts.map((p) => 
+        p.id === postId 
+          ? { ...p, likes: p.likedByMe ? p.likes : p.likes + 1, likedByMe: !p.likedByMe }
+          : p
+      ),
+    }));
   },
 
   addComment: async (postId: string, userId: string, username: string, content: string) => {
-    try {
-      const response = await fetch(`/api/community/posts/${postId}/comments`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, username, content }),
-      });
-      
-      if (response.ok) {
-        const updatedPost = await response.json();
-        set((state) => ({
-          posts: state.posts.map((p) => (p.id === postId ? updatedPost : p)),
-        }));
-      }
-    } catch (error) {
-      console.error('Failed to add comment:', error);
-    }
+    await new Promise(resolve => setTimeout(resolve, 100));
+    set((state) => ({
+      posts: state.posts.map((p) => 
+        p.id === postId 
+          ? { 
+              ...p, 
+              comments: [...p.comments, { 
+                id: Date.now().toString(), 
+                userId, 
+                username, 
+                content, 
+                createdAt: new Date().toISOString() 
+              }] 
+            }
+          : p
+      ),
+    }));
   },
 
   setSelectedLanguage: (language) => set({ selectedLanguage: language }),
